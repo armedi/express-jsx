@@ -1,0 +1,6 @@
+.git
+.ssr
+.linaria-cache
+.DS_Store
+node_modules
+npm-debug.log
