@@ -2,10 +2,22 @@ const fs = require('fs');
 const path = require('path');
 const config = require('./config.json');
 
+let styleCache = {};
+
 function getStyle(path) {
+  if (
+    process.env.NODE_ENV === 'production' &&
+    typeof styleCache[path] === 'string'
+  ) {
+    return styleCache[path];
+  }
+
   try {
-    return fs.readFileSync(path + '.css', 'utf8');
+    const style = fs.readFileSync(path + '.css', 'utf8');
+    styleCache[path] = style;
+    return style;
   } catch (error) {
+    styleCache[path] = '';
     return '';
   }
 }
