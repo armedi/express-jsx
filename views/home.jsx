@@ -11,14 +11,8 @@ function Home({ ip }) {
     >
       <h2
         className={css`
-          @apply mt-4 text-4xl tracking-tight leading-10 font-extrabold text-white text-center;
+          @apply text-4xl tracking-tight leading-none font-extrabold text-white text-center;
           @screen sm {
-            @apply mt-5 leading-none text-6xl;
-          }
-          @screen lg {
-            @apply mt-6 text-5xl;
-          }
-          @screen xl {
             @apply text-6xl;
           }
         `}
@@ -28,8 +22,8 @@ function Home({ ip }) {
             @apply text-indigo-400;
           `}
         >
-          Your IP Address is{' '}
-        </span>
+          Your IP Address is
+        </span>{' '}
         {ip}
       </h2>
     </main>
